@@ -4,11 +4,10 @@
     </div>
     <form>
     <div *ngFor="let char of word.split(''); let i = index" class="letter-container"
-       [attr.aria-labelledby]="i==0? 'question-'+pos : null"
        [class.before-letter]="centralLetter > i"
        [class.center-letter]="centralLetter == i"
        [class.after-letter]="centralLetter < i"
        [class.high-contrast]="highContrast"
-    ><input class="letter-input"  maxlength="1" autoTabOnFull/></div>
+    ><input [attr.aria-labelledby]="i==0? 'question-'+pos : null" class="letter-input"  maxlength="1" autoTabOnFull/></div>
     </form>
 </div>
