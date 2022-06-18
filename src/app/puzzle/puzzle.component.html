@@ -1,0 +1,30 @@
+<mat-drawer-container>
+    <mat-drawer class="hints-container" #drawer [opened]="showHints" mode="side" position="end"><h1>Pistas</h1>
+    <ol>
+        <li [attr.id]="'question-'+i" *ngFor="let w of puzzleData.puzzleWords; let i=index">{{w.hint}}</li>
+    </ol>
+    
+    </mat-drawer>
+    <mat-drawer-content class="drawer-content">
+        <mat-card class="puzzle-card"> 
+        <div class="puzzle-container">
+            <puzzle-word *ngFor="let w of puzzleData.puzzleWords; let i = index" 
+            [highContrast]="highContrast" [pos]="i" [word]="w.word" [centralLetter]="w.centralLetter" [paddingSlots]="computePadding(w)"></puzzle-word>  
+        </div>
+        <div class="fabs-container">
+            <button class="hints-button" mat-fab color="primary" aria-label="Mostrar u ocultar las pistas." (click)="toggleHints()">
+                <mat-icon>question_mark</mat-icon>
+            </button>
+            <button class="hints-button" mat-fab color="primary" aria-label="Modo de alto contraste." (click)="toggleContrast()">
+                <mat-icon>contrast</mat-icon>
+            </button>
+        </div>
+        <mat-divider class="puzzle-divider"></mat-divider>
+        <div class="puzzle-buttons">
+            <button mat-raised-button >Volver</button>
+            <button mat-raised-button color="warn">Reiniciar</button>
+            <button mat-raised-button color="primary">Verificar</button>
+        </div>
+        </mat-card>
+    </mat-drawer-content>
+</mat-drawer-container>

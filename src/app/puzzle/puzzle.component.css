@@ -1,0 +1,44 @@
+.hints-container {
+    padding: 5px;
+}
+
+.hints-container h1 {
+    margin: 10px;
+    font-size: 40pt;
+}
+
+.hints-container li {
+    font-size: 16pt;
+    margin-top: 10px;
+}
+
+.hints-container ol {
+    margin-top: 40px;
+}
+
+.fabs-container {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.fabs-container button{
+  margin-bottom: 5px;
+}
+
+.puzzle-divider {
+    position: relative !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.puzzle-card {
+    margin: 20px;
+    padding: 20px;
+}
+
+.puzzle-buttons {
+    display: flex !important;
+    justify-content: space-evenly;
+}

@@ -1,0 +1,55 @@
+.word-container {
+    display:flex;
+}
+.letter-container{
+  border: 1px solid black;
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  margin:3px
+}
+.padding-letter {
+    background-color: transparent;
+    border-color: transparent;
+}
+.before-letter {
+}
+.center-letter {
+    background-color: green;
+}
+
+.center-letter.high-contrast {
+    background-color: black;
+}
+
+.center-letter.high-contrast > input{
+    color: white;
+}
+
+
+.after-letter {
+
+}
+.letter-input{
+    height: 100%;
+    width: 100%;
+    border: 0px;
+    padding: 0;
+    text-align: center;
+    font-size: 32pt;
+    text-transform: uppercase;
+    background-color: transparent;
+}
+
+.word-header{
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    margin:3px;
+    text-align: center;
+    font-size: 32pt;
+    border-radius: 100%;
+    margin-right: 20px;
+    line-height: initial;
+  }
