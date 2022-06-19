@@ -12,10 +12,9 @@
     background-color: transparent;
     border-color: transparent;
 }
-.before-letter {
-}
+
 .center-letter {
-    background-color: green;
+    background-color: rgb(49, 62, 236);
 }
 
 .center-letter.high-contrast {
@@ -27,9 +26,15 @@
 }
 
 
-.after-letter {
-
+.correct {
+  background-color: rgba(0, 128, 0, 0.5);
 }
+
+.incorrect {
+  background-color:rgba(255, 0, 0, 0.5);
+}
+
+
 .letter-input{
     height: 100%;
     width: 100%;

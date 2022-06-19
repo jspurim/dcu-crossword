@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, QueryList, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'puzzle-word',
@@ -12,6 +12,8 @@ export class PuzzleWordComponent implements OnInit {
   @Input() paddingSlots: number = 0;
   @Input() pos : number = 0;
   @Input() highContrast : boolean = false;
+  @Output() wordChange = new EventEmitter();
+  showValidation : boolean = false;
 
   @ViewChildren("letter") letterInputs : QueryList<ElementRef> = new QueryList();
 
@@ -22,6 +24,18 @@ export class PuzzleWordComponent implements OnInit {
 
   resetWord():void {
     this.letterInputs.forEach(i => i.nativeElement.value = "")
+  }
+
+  currentWord(): string {
+    return this.letterInputs.map(i => i.nativeElement.value).join("");
+  }
+
+  isCorrect() : boolean {
+    return this.word.toLowerCase() == this.currentWord().toLowerCase();
+  }
+
+  emitChangeEvent(){
+    this.wordChange.emit();
   }
 
 }

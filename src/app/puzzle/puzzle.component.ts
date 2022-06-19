@@ -31,7 +31,7 @@ export class PuzzleComponent implements OnInit {
         },{
           word: "kirchner", centralLetter: 5, hint: "Presidente de la Argentina durante la inundación.",
         },{
-          word: "abril", centralLetter: 2, hint: "Mes de la inundación",
+          word: "abril", centralLetter: 0, hint: "Mes de la inundación",
         },{
           word: "dosmildocientos", centralLetter: 6, hint: "Numero de personas que debieron ser evacuadas.",
         },{
@@ -60,7 +60,20 @@ export class PuzzleComponent implements OnInit {
   }
 
   resetPuzzle() : void {
-    this.wordComponents.forEach(c => c.resetWord());
+    this.wordComponents.forEach(w => w.resetWord());
   }
+
+  validatePuzzle() : void {
+    this.wordComponents.forEach(w => w.showValidation = true);
+    let correct = this.wordComponents.toArray().every(w => w.isCorrect());
+    if(correct){
+      console.log("YEY!")
+    }
+  }
+
+  clearValidation() : void {
+    this.wordComponents.forEach(w => w.showValidation = false);
+  }
+
 
 }

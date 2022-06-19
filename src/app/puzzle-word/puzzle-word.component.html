@@ -1,5 +1,8 @@
 <div class="word-container">
-    <div  class="word-header"><span>{{pos+1}}</span></div>
+    <div  class="word-header"
+    [class.correct]="showValidation && isCorrect()"
+    [class.incorrect]="showValidation && !isCorrect()"
+    ><span>{{pos+1}}</span></div>
     <div *ngFor="let char of [].constructor(paddingSlots)" class="letter-container padding-letter">
     </div>
     <div *ngFor="let char of word.split(''); let i = index" class="letter-container"
@@ -8,6 +11,8 @@
        [class.after-letter]="centralLetter < i"
        [class.high-contrast]="highContrast"
     >
-        <input #letter [attr.aria-labelledby]="i==0? 'question-'+pos : null" class="letter-input"  maxlength="1" autoTabOnFull/>
+        <input #letter [attr.aria-labelledby]="i==0? 'question-'+pos : null" class="letter-input"  maxlength="1" autoTabOnFull
+            (change)="emitChangeEvent()"
+        />
     </div>
 </div>

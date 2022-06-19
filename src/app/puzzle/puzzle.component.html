@@ -9,7 +9,9 @@
         <mat-card class="puzzle-card"> 
         <div class="puzzle-container">
             <puzzle-word #wordCmp *ngFor="let w of puzzleData.puzzleWords; let i = index" 
-            [highContrast]="highContrast" [pos]="i" [word]="w.word" [centralLetter]="w.centralLetter" [paddingSlots]="computePadding(w)"></puzzle-word>  
+            [highContrast]="highContrast" [pos]="i" [word]="w.word" [centralLetter]="w.centralLetter" [paddingSlots]="computePadding(w)"
+            (wordChange)="clearValidation()"
+            ></puzzle-word>  
         </div>
         <div class="fabs-container">
             <button class="hints-button" mat-fab color="primary" aria-label="Mostrar u ocultar las pistas." (click)="toggleHints()">
@@ -23,7 +25,7 @@
         <div class="puzzle-buttons">
             <button mat-raised-button >Volver</button>
             <button mat-raised-button color="warn" (click)="resetPuzzle()">Reiniciar</button>
-            <button mat-raised-button color="primary">Verificar</button>
+            <button mat-raised-button color="primary" (click)="validatePuzzle()">Verificar</button>
         </div>
         </mat-card>
     </mat-drawer-content>
