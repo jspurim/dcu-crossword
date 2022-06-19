@@ -13,13 +13,15 @@ import { MatDividerModule } from '@angular/material/divider';
 import { PuzzleWordComponent } from './puzzle-word/puzzle-word.component';
 import { PuzzleComponent } from './puzzle/puzzle.component';
 import { AutoTabOnFullDirective } from './auto-tab-on-full.directive';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PuzzleWordComponent,
     PuzzleComponent,
-    AutoTabOnFullDirective
+    AutoTabOnFullDirective,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
