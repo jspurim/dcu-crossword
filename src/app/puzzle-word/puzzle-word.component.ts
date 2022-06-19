@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'puzzle-word',
@@ -13,9 +13,15 @@ export class PuzzleWordComponent implements OnInit {
   @Input() pos : number = 0;
   @Input() highContrast : boolean = false;
 
+  @ViewChildren("letter") letterInputs : QueryList<ElementRef> = new QueryList();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  resetWord():void {
+    this.letterInputs.forEach(i => i.nativeElement.value = "")
   }
 
 }

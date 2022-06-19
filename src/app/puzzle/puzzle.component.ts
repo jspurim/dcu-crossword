@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { PuzzleWordComponent } from '../puzzle-word/puzzle-word.component';
 import { PuzzleData, PuzzleWord } from './puzzle.model';
 
 @Component({
@@ -12,6 +13,9 @@ export class PuzzleComponent implements OnInit {
   centralColumn: number;
   showHints : boolean = true;
   highContrast : boolean = false;
+
+  @ViewChildren("wordCmp") wordComponents : QueryList<PuzzleWordComponent> = new QueryList();
+
   constructor() { 
     this.puzzleData = {
         puzzleWords: [{
@@ -53,6 +57,10 @@ export class PuzzleComponent implements OnInit {
 
   toggleContrast() : void{
     this.highContrast = !this.highContrast;
+  }
+
+  resetPuzzle() : void {
+    this.wordComponents.forEach(c => c.resetWord());
   }
 
 }

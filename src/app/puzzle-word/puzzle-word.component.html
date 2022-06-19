@@ -2,12 +2,12 @@
     <div  class="word-header"><span>{{pos+1}}</span></div>
     <div *ngFor="let char of [].constructor(paddingSlots)" class="letter-container padding-letter">
     </div>
-    <form>
     <div *ngFor="let char of word.split(''); let i = index" class="letter-container"
        [class.before-letter]="centralLetter > i"
        [class.center-letter]="centralLetter == i"
        [class.after-letter]="centralLetter < i"
        [class.high-contrast]="highContrast"
-    ><input [attr.aria-labelledby]="i==0? 'question-'+pos : null" class="letter-input"  maxlength="1" autoTabOnFull/></div>
-    </form>
+    >
+        <input #letter [attr.aria-labelledby]="i==0? 'question-'+pos : null" class="letter-input"  maxlength="1" autoTabOnFull/>
+    </div>
 </div>

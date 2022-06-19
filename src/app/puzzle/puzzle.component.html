@@ -8,7 +8,7 @@
     <mat-drawer-content class="drawer-content">
         <mat-card class="puzzle-card"> 
         <div class="puzzle-container">
-            <puzzle-word *ngFor="let w of puzzleData.puzzleWords; let i = index" 
+            <puzzle-word #wordCmp *ngFor="let w of puzzleData.puzzleWords; let i = index" 
             [highContrast]="highContrast" [pos]="i" [word]="w.word" [centralLetter]="w.centralLetter" [paddingSlots]="computePadding(w)"></puzzle-word>  
         </div>
         <div class="fabs-container">
@@ -22,7 +22,7 @@
         <mat-divider class="puzzle-divider"></mat-divider>
         <div class="puzzle-buttons">
             <button mat-raised-button >Volver</button>
-            <button mat-raised-button color="warn">Reiniciar</button>
+            <button mat-raised-button color="warn" (click)="resetPuzzle()">Reiniciar</button>
             <button mat-raised-button color="primary">Verificar</button>
         </div>
         </mat-card>
