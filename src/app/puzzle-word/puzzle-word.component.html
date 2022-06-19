@@ -1,8 +1,13 @@
 <div class="word-container">
     <div  class="word-header"
-    [class.correct]="showValidation && isCorrect()"
-    [class.incorrect]="showValidation && !isCorrect()"
-    ><span>{{pos+1}}</span></div>
+        [class.correct]="showValidation && !highContrast && isCorrect()"
+        [class.incorrect]="showValidation && !highContrast && !isCorrect()">
+        <span>{{pos+1}}</span>
+    </div>
+    <div id="validation-icons" class="word-header" [class.high-contrast]="highContrast" [class.show-validation]="showValidation">
+        <mat-icon *ngIf="isCorrect()" aria-hidden="false" aria-label="Palabra correcta">check_circle</mat-icon>
+        <mat-icon *ngIf="!isCorrect()" aria-hidden="false" aria-label="Palabra incorrecta">cancel</mat-icon>
+    </div>
     <div *ngFor="let char of [].constructor(paddingSlots)" class="letter-container padding-letter">
     </div>
     <div *ngFor="let char of word.split(''); let i = index" class="letter-container"
