@@ -9,7 +9,7 @@
         <mat-card class="puzzle-card"> 
         <div class="puzzle-container">
             <puzzle-word #wordCmp *ngFor="let w of puzzleData.puzzleWords; let i = index" 
-            [highContrast]="highContrast" [pos]="i" [word]="w.word" [centralLetter]="w.centralLetter" [paddingSlots]="computePadding(w)"
+            [highContrast]="highContrast" [pos]="i" [word]="w.word" [centralLetter]="w.centralLetter" [hint]="w.hint" [paddingSlots]="computePadding(w)"
             (wordChange)="clearValidation()"
             ></puzzle-word>  
         </div>

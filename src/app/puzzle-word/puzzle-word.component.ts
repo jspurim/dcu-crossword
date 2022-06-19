@@ -8,6 +8,7 @@ import { Component, ElementRef, EventEmitter, Input, OnInit, Output, QueryList, 
 export class PuzzleWordComponent implements OnInit {
 
   @Input() word : string = '';
+  @Input() hint : string = '';
   @Input() centralLetter: number = 0;
   @Input() paddingSlots: number = 0;
   @Input() pos : number = 0;
@@ -36,6 +37,16 @@ export class PuzzleWordComponent implements OnInit {
 
   emitChangeEvent(){
     this.wordChange.emit();
+  }
+
+  buildAriaLabel(letterPosition : number) : string {
+    let labelHeader = `Palabra numero ${this.pos}.`
+    let firstLetterLabel = `${ this.word.length } letras: ${this.hint}`
+    let commonLabel = `Letra ${ letterPosition+1 } de ${ this.word.length }.`
+    if(letterPosition==0){
+      return `${labelHeader} ${firstLetterLabel} ${commonLabel}`
+    }
+    return `${labelHeader} ${commonLabel}`
   }
 
 }
