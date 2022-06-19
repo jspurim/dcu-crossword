@@ -40,7 +40,7 @@ export class PuzzleWordComponent implements OnInit {
   }
 
   buildAriaLabel(letterPosition : number) : string {
-    let labelHeader = `Palabra numero ${this.pos}.`
+    let labelHeader = `Palabra número ${this.pos +1}.`
     let firstLetterLabel = `${ this.word.length } letras: ${this.hint}`
     let commonLabel = `Letra ${ letterPosition+1 } de ${ this.word.length }.`
     if(letterPosition==0){
