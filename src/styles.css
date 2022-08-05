@@ -3,5 +3,16 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    font-size: medium;
+}
 
+html {
+    font-size: 100% /* or 62.5% or whatever you like, it doesn't matter, it's just a browser fix, however "rem" units will be based on that value, so make it confortable for calculations */
+}
+
+body {
+    font-size: 40.75em; /* That is your text's default font size. Here i chose 12px */
+}
