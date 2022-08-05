@@ -39,14 +39,16 @@ export class PuzzleWordComponent implements OnInit {
     this.wordChange.emit();
   }
 
-  buildAriaLabel(letterPosition : number) : string {
-    let labelHeader = `Palabra número ${this.pos +1}.`
-    let firstLetterLabel = `${ this.word.length } letras: ${this.hint}`
-    let commonLabel = `Letra ${ letterPosition+1 } de ${ this.word.length }.`
+  buildAriaLabel(letterPosition : number, centralLetter : boolean) : string {
+    let wordLabel = `palabra número ${this.pos +1}.`
+    let firstLetterLabel = `${ this.word.length } letras: ${this.hint}.`
+    let letterLabel = `letra ${ letterPosition+1 } de ${ this.word.length }.`
+    if(centralLetter)
+      letterLabel += "letra destacada."
     if(letterPosition==0){
-      return `${labelHeader} ${firstLetterLabel} ${commonLabel}`
+      return `${wordLabel} ${firstLetterLabel} ${letterLabel}`
     }
-    return `${labelHeader} ${commonLabel}`
+    return `${letterLabel}${wordLabel}`
   }
 
 }

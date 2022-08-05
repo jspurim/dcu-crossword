@@ -16,7 +16,7 @@
        [class.after-letter]="centralLetter < i"
        [class.high-contrast]="highContrast"
     >
-        <input #letter [attr.aria-label]="buildAriaLabel(i)" class="letter-input"  maxlength="1" autoTabOnFull
+        <input #letter [attr.aria-label]="buildAriaLabel(i, centralLetter == i)" class="letter-input"  maxlength="1" autoTabOnFull
             (change)="emitChangeEvent()"
         />
     </div>
