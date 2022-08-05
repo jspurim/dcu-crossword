@@ -15,6 +15,7 @@ export class PuzzleComponent implements OnInit {
   centralColumn: number;
   showHints : boolean = true;
   highContrast : boolean = false;
+  solvedWords : Array<boolean> = []
 
   @ViewChildren("wordCmp") wordComponents : QueryList<PuzzleWordComponent> = new QueryList();
 
@@ -26,6 +27,7 @@ export class PuzzleComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.puzzleData = PUZZLES.get(params["puzzleId"])!;
+      this.solvedWords = Array(this.puzzleData.puzzleWords.length).fill(false);
       this.centralColumn = Math.max(
         ...this.puzzleData.puzzleWords.map(w => w.centralLetter));
     })
@@ -49,8 +51,8 @@ export class PuzzleComponent implements OnInit {
 
   validatePuzzle() : void {
     this.wordComponents.forEach(w => w.showValidation = true);
-    let correct = this.wordComponents.toArray().every(w => w.isCorrect());
-    if(correct){
+    this.solvedWords = this.wordComponents.toArray().map(w => w.isCorrect());
+    if(this.solvedWords.every(x=>x)){
       console.log("YEY!")
     }
   }

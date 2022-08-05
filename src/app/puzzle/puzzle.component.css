@@ -42,3 +42,7 @@
     display: flex !important;
     justify-content: space-evenly;
 }
+
+.solved {
+    text-decoration: line-through;
+}

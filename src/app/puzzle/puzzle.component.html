@@ -1,7 +1,7 @@
 <mat-drawer-container>
     <mat-drawer class="hints-container" #drawer [opened]="showHints" mode="side" position="end"><h1>Pistas</h1>
     <ol>
-        <li [attr.id]="'question-'+i" *ngFor="let w of puzzleData.puzzleWords; let i=index">{{w.hint}}</li>
+        <li [class.solved]="solvedWords[i]" [attr.id]="'question-'+i" *ngFor="let w of puzzleData.puzzleWords; let i=index">{{w.hint}}</li>
     </ol>
     
     </mat-drawer>
