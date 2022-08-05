@@ -36,6 +36,7 @@
 .puzzle-card {
     margin: 20px;
     padding: 20px;
+    overflow: hidden;
 }
 
 .puzzle-buttons {
@@ -45,4 +46,13 @@
 
 .solved {
     text-decoration: line-through;
+}
+
+.puzzle-container {
+    width: 1000px;
+}
+
+.drawer-content {
+    overflow: hidden;
+    padding-right: 68px;
 }

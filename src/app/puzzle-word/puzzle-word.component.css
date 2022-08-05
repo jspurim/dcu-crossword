@@ -1,5 +1,6 @@
 .word-container {
-    display:flex;
+    display: inline-flex;
+    width: 100%;
 }
 .letter-container{
   border: 1px solid black;
