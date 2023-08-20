@@ -1,4 +1,4 @@
-FROM node:14.18.0-alpine3.11 as build
+FROM node:18.10-alpine as build
 WORKDIR /app
 
 RUN apk add --no-cache git && git config --global url.https://github.com/.insteadOf git://github.com/
